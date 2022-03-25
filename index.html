@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id="app">
+        Hola {{nombre}} estamos en el año {{anio}}
+        Mes: {{meses[0]}}
+        Contador: {{contador}}
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        //Tenemos tipos estructura
+        //data, methods, props, mounted, created, computed, watch, destroyed
+        
+        const holaMundo = {
+            data() {
+                return{
+                    nombre: 'David',
+                    anio: 2022,
+                    meses: ['Enero','Febrero'],
+                    contador: 0
+                }
+            },
+            mounted(){
+                setInterval(() => {
+                    this.contador ++
+                },1000);
+            }
+        }
+
+        var mountApp = Vue.createApp(holaMundo).mount('#app')
+    </script>
+</body>
+</html>
