@@ -66,8 +66,34 @@
             </table>
         </div>
         <hr>
-        Usando API Posts para obtener datos: <br>
-        {{posts}}
+        <!--Usando API Posts para obtener datos: <br>
+        {{posts}} <br>
+        <hr>
+        -->
+        <div class="container">  <!-- Se agrga un contenedor para crear espacios al rededor -->
+            <table class="table strippead bordered">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Usuario</th>
+                        <th>Titulo</th>
+                        <th>Mensaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="post in posts"> 
+                        <td>{{post.id}}</td>
+                        <td>{{post.userId}}</td>
+                        <td>{{post.title}}</td>
+                        <td>{{post.body}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        Evaluando variables o datos desde Vuejs con condicionales <br>
+        <h5 v-if="(numero_uno > numero_dos)">El numero {{numero_uno}} es mayor que {{numero_dos}}</h5>
+        <h5 v-else-if="(numero_dos > numero_uno)">El numero {{numero_dos}} es mayor que {{numero_uno}}</h5>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script>
@@ -105,7 +131,9 @@
                     años: '',
                     activo: false, 
                     usuarios: [],
-                    posts: []
+                    posts: [],
+                    numero_uno: 5,
+                    numero_dos: 10
                 }
             },
             mounted(){
